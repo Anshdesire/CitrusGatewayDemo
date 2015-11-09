@@ -3,8 +3,8 @@
 define("POST_URL",  "https://sandbox.citruspay.com/xxxxxx"); //  add sand box url with vanityUrl given in your citrusPay account
 define("SECRET_KEY",     "xxxxxxxxxxxxxxxxxxxxxxxxx"); // Add secretkey given in your citrus Pay Account.
 define("VANITY_URL",     "xxxxxxxxxx"); // Add vanity Url given in your Citrus Pay Account.
-define("RETURN_URL",     $_SERVER['SERVER_ADDR']."/citrus/response.php"); // Return Url (Callback after payment)
-define("NOTIFY_URL",     $_SERVER['SERVER_ADDR']."/citrus/notifyResponsePage"); // IPN callback 
+define("RETURN_URL",     'http://'.$_SERVER['SERVER_ADDR']."/citrus/response.php"); // Return Url (Callback after payment)
+define("NOTIFY_URL",     'http://'.$_SERVER['SERVER_ADDR']."/citrus/notifyResponsePage"); // IPN callback 
 define("SIGNATURE_HASHING",     "sha1"); // sha is being used here for Signature Creation
 /**
  * author@nswapt@gmail.com
