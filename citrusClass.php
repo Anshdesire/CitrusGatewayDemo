@@ -1,14 +1,14 @@
 <?php 
 
-define("POST_URL",  "https://sandbox.citruspay.com/xxxxxx"); 
-define("SECRET_KEY",     "xxxxxxxxxxxxxxxxxxxxxxxxx");
-define("VANITY_URL",     "xxxxxxxxxx");
-define("RETURN_URL",     $_SERVER['SERVER_ADDR']."/citrus/response.php");
-define("NOTIFY_URL",     $_SERVER['SERVER_ADDR']."/citrus/notifyResponsePage");
-define("SIGNATURE_HASHING",     "sha1");
+define("POST_URL",  "https://sandbox.citruspay.com/xxxxxx"); //  add sand box url with vanityUrl given in your citrusPay account
+define("SECRET_KEY",     "xxxxxxxxxxxxxxxxxxxxxxxxx"); // Add secretkey given in your citrus Pay Account.
+define("VANITY_URL",     "xxxxxxxxxx"); // Add vanity Url given in your Citrus Pay Account.
+define("RETURN_URL",     'http://'.$_SERVER['SERVER_ADDR']."/citrus/response.php"); // Return Url (Callback after payment)
+define("NOTIFY_URL",     'http://'.$_SERVER['SERVER_ADDR']."/citrus/notifyResponsePage"); // IPN callback 
+define("SIGNATURE_HASHING",     "sha1"); // sha is being used here for Signature Creation
 /**
- *
- * 
+ * author@nswapt@gmail.com
+ * Citrus Pay Class
  */
 class payCitrus{
 	public function __construct(){
@@ -32,6 +32,10 @@ class payCitrus{
     
 	
     //Need to change with your Order Amount
+    /**
+    * author@nswapt@gmail.com
+    * description@generates data for Signature Creation 
+     */
     public function getData(){
     	return $this->vanityUrl.$this->orderAmount.$this->merchant_id.$this->currency;
     }
@@ -46,7 +50,10 @@ class payCitrus{
     }
     //Need to change with your Return URL
 
-    
+    /**
+   * author@nswapt@gmail.com
+   * Citrus Signature Creation
+   */
     public function getSignature(){
     	return  hash_hmac(SIGNATURE_HASHING, $this->getData(), $this->secret_key);
     }
@@ -56,8 +63,8 @@ class payCitrus{
 
 }
 /**
- *
- * 
+ * author@nswapt@gmail.com
+ * Citrus Response Receiving Class which would be used in Notify and Return URl Both.
  */
 class responseCitrus{
 	public function __construct(){
@@ -198,6 +205,6 @@ class responseCitrus{
 		}
 	}
 }
-	$citrus = new payCitrus();
+	$citrus = new payCitrus(); 
 	$citrusResponse = new responseCitrus();
 ?>
