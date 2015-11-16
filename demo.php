@@ -1,5 +1,8 @@
 <?php include('citrusClass.php');   
-$citrus->orderAmount = "1.00";?>
+$citrus->orderAmount = "1.00";
+$st = '********|4323532|NA|1868.00|NA|NA|NA|INR|NA|R|*****|NA|NA|F|02-268|3977610|NA|NA|NA|NA|NA|http://*****/***/Mobile/Payment/ProcessCallback2|19681C59C46ED3B462DAED2587DC9B85E5C48AB1D58810B8A5F80685031FF246';
+      var_dump($citrus->assignData($st));
+      ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
  <html>
      <head>
