@@ -42,8 +42,8 @@ class payCitrus{
     public function assignData($string = null){
     	if($string != null){
     		$string = explode('|', $string);
-    		$this->merchant_id = $string[1];
-    		$this->orderAmount = $string[3];
+    		// $this->merchant_id = $string[1];
+    		// $this->orderAmount = $string[3];
     		return true;
     	}
     	return false;
