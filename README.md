@@ -14,8 +14,8 @@ is the library where code and claass is written
 
 Need to configure 
 
-POST_URL
-SECRET_KEY
+POST_URL,
+SECRET_KEY,
 VANITY_URL   in citrusClass.php
 
 there are two objects instantiated in library file 	$citrus (to generate data to post on citrus), $citrusResponse (to receive responce)
